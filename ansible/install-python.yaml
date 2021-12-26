@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: infra
+  gather_facts: no
+  become: yes
+
+  pre_tasks:
+    - name: Install python
+      apt:
+        name: python
+        state: present
+  
+
