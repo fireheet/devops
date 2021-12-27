@@ -1,11 +1,4 @@
 ---
-- name: Install libraries
-  apt:
-    name:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - gnupg
-      - lsb-release
-    state: latest
-    update_cache: yes
+- import_tasks: install-docker.yaml
+
+- import_tasks: install-docker-compose.yaml
