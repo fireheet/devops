@@ -1,0 +1,477 @@
+id: 2ca79b50-6727-11ec-860a-357667ae03f0
+revision: 2
+outputs:
+  default:
+    type: elasticsearch
+    hosts:
+      - 'http://147.182.131.139:9200'
+    username: 'elastic'
+    password: 'changeme'
+output_permissions:
+  default:
+    _elastic_agent_monitoring:
+      indices:
+        - names:
+            - logs-elastic_agent.apm_server-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.apm_server-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.auditbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.auditbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.elastic_agent-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.endpoint_security-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.endpoint_security-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.filebeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.filebeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.fleet_server-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.fleet_server-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.heartbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.heartbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.metricbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.metricbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.osquerybeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.osquerybeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-elastic_agent.packetbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-elastic_agent.packetbeat-default
+          privileges:
+            - auto_configure
+            - create_doc
+    _elastic_agent_checks:
+      cluster:
+        - monitor
+    system-1:
+      indices:
+        - names:
+            - logs-system.auth-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-system.syslog-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-system.application-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-system.security-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-system.system-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.cpu-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.diskio-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.filesystem-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.fsstat-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.load-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.memory-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.network-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.process-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.process.summary-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.socket_summary-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-system.uptime-default
+          privileges:
+            - auto_configure
+            - create_doc
+    fireheet-apm:
+      indices:
+        - names:
+            - metrics-apm.app.*-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - logs-apm.error-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-apm.internal-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - metrics-apm.profiling-default
+          privileges:
+            - auto_configure
+            - create_doc
+        - names:
+            - traces-apm.sampled-default
+          privileges:
+            - auto_configure
+            - create_doc
+            - maintenance
+            - monitor
+            - read
+        - names:
+            - traces-apm-default
+          privileges:
+            - auto_configure
+            - create_doc
+      cluster:
+        - 'cluster:monitor/main'
+agent:
+  monitoring:
+    enabled: true
+    use_output: default
+    namespace: default
+    logs: true
+    metrics: true
+inputs:
+  - id: b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+    name: system-1
+    revision: 1
+    type: logfile
+    use_output: default
+    meta:
+      package:
+        name: system
+        version: 1.6.4
+    data_stream:
+      namespace: default
+    streams:
+      - id: logfile-system.auth-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.auth
+          type: logs
+        paths:
+          - /var/log/auth.log*
+          - /var/log/secure*
+        exclude_files:
+          - .gz$
+        multiline:
+          pattern: ^\s
+          match: after
+        processors:
+          - add_locale: null
+      - id: logfile-system.syslog-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.syslog
+          type: logs
+        paths:
+          - /var/log/messages*
+          - /var/log/syslog*
+        exclude_files:
+          - .gz$
+        multiline:
+          pattern: ^\s
+          match: after
+        processors:
+          - add_locale: null
+  - id: b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+    name: system-1
+    revision: 1
+    type: winlog
+    use_output: default
+    meta:
+      package:
+        name: system
+        version: 1.6.4
+    data_stream:
+      namespace: default
+    streams:
+      - id: winlog-system.application-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        name: Application
+        data_stream:
+          dataset: system.application
+          type: logs
+        condition: '${host.platform} == ''windows'''
+        ignore_older: 72h
+        tags: null
+      - id: winlog-system.security-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        name: Security
+        data_stream:
+          dataset: system.security
+          type: logs
+        condition: '${host.platform} == ''windows'''
+        tags: null
+      - id: winlog-system.system-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        name: System
+        data_stream:
+          dataset: system.system
+          type: logs
+        condition: '${host.platform} == ''windows'''
+        tags: null
+  - id: b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+    name: system-1
+    revision: 1
+    type: system/metrics
+    use_output: default
+    meta:
+      package:
+        name: system
+        version: 1.6.4
+    data_stream:
+      namespace: default
+    streams:
+      - id: system/metrics-system.cpu-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.cpu
+          type: metrics
+        metricsets:
+          - cpu
+        cpu.metrics:
+          - percentages
+          - normalized_percentages
+        period: 10s
+      - id: system/metrics-system.diskio-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.diskio
+          type: metrics
+        metricsets:
+          - diskio
+        diskio.include_devices: null
+        period: 10s
+      - id: system/metrics-system.filesystem-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.filesystem
+          type: metrics
+        metricsets:
+          - filesystem
+        period: 1m
+        processors:
+          - drop_event.when.regexp:
+              system.filesystem.mount_point: ^/(sys|cgroup|proc|dev|etc|host|lib|snap)($|/)
+      - id: system/metrics-system.fsstat-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.fsstat
+          type: metrics
+        metricsets:
+          - fsstat
+        period: 1m
+        processors:
+          - drop_event.when.regexp:
+              system.fsstat.mount_point: ^/(sys|cgroup|proc|dev|etc|host|lib|snap)($|/)
+      - id: system/metrics-system.load-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.load
+          type: metrics
+        metricsets:
+          - load
+        condition: '${host.platform} != ''windows'''
+        period: 10s
+      - id: system/metrics-system.memory-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.memory
+          type: metrics
+        metricsets:
+          - memory
+        period: 10s
+      - id: system/metrics-system.network-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.network
+          type: metrics
+        metricsets:
+          - network
+        period: 10s
+        network.interfaces: null
+      - id: system/metrics-system.process-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.process
+          type: metrics
+        metricsets:
+          - process
+        period: 10s
+        process.include_top_n.by_cpu: 5
+        process.include_top_n.by_memory: 5
+        process.cmdline.cache.enabled: true
+        process.cgroups.enabled: false
+        process.include_cpu_ticks: false
+        processes:
+          - .*
+      - id: >-
+          system/metrics-system.process.summary-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.process.summary
+          type: metrics
+        metricsets:
+          - process_summary
+        period: 10s
+      - id: >-
+          system/metrics-system.socket_summary-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.socket_summary
+          type: metrics
+        metricsets:
+          - socket_summary
+        period: 10s
+      - id: system/metrics-system.uptime-b9e85814-25a5-4cd1-86ba-a60fd0e1f686
+        data_stream:
+          dataset: system.uptime
+          type: metrics
+        metricsets:
+          - uptime
+        period: 10s
+  - id: b8f75f21-f83a-479d-a5e7-f44bf3e7ab78
+    name: fireheet-apm
+    revision: 1
+    type: apm
+    use_output: default
+    meta:
+      package:
+        name: apm
+        version: 7.16.0
+    data_stream:
+      namespace: default
+    apm-server:
+      auth:
+        anonymous:
+          enabled: true
+          allow_agent:
+            - rum-js
+            - js-base
+            - iOS/swift
+          allow_service: null
+          rate_limit:
+            event_limit: 300
+            ip_limit: 1000
+        api_key:
+          enabled: false
+          limit: 100
+        secret_token: null
+      capture_personal_data: true
+      idle_timeout: 45s
+      default_service_environment: null
+      expvar.enabled: false
+      host: 'localhost:8200'
+      max_connections: 0
+      max_event_size: 307200
+      max_header_size: 1048576
+      read_timeout: 3600s
+      response_headers: null
+      rum:
+        enabled: true
+        allow_headers: null
+        allow_origins:
+          - '*'
+        exclude_from_grouping: ^/webpack
+        library_pattern: node_modules|bower_components|~
+        response_headers: null
+        source_mapping:
+          metadata: []
+      shutdown_timeout: 30s
+      write_timeout: 30s
+      agent_config: []

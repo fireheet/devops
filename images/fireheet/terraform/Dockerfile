@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-WORKDIR /root/terraform
+WORKDIR /terraform
 
 RUN apt-get update --fix-missing -y
 

@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 
-WORKDIR /root/ansible
+WORKDIR /ansible
 
-RUN apt-get update --fix-missing -y
+RUN apt-get update -y
 
 RUN apt-get install vim ssh -y
 
