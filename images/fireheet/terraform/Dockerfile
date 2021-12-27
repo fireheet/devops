@@ -2,11 +2,9 @@ FROM ubuntu:18.04
 
 WORKDIR /terraform
 
-RUN apt-get update --fix-missing -y
+RUN apt-get update -y
 
-RUN apt-get install vim ssh curl -y
-
-RUN apt-get install lsb-release software-properties-common -y
+RUN apt-get install lsb-release software-properties-common ssh curl -y
 
 RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 

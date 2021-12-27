@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    hostname: "rabbitmq"
+    env_file:
+      - rabbitmq.env
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "rabbitmq"
+    volumes:
+      - "./enabled_plugins:/etc/rabbitmq/enabled_plugins"

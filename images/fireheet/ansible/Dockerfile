@@ -4,9 +4,7 @@ WORKDIR /ansible
 
 RUN apt-get update -y
 
-RUN apt-get install vim ssh -y
-
-RUN apt-get install ansible -y
+RUN apt-get install ssh ansible -y
 
 RUN echo 'root:root' | chpasswd
 
