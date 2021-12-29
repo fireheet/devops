@@ -4,7 +4,7 @@ This repository will contain all **DevOps** files for the project, both *DEV* an
 
 To get help on installing and setting things up, go through the [Setups | Environment Setup](https://fireheet.bit.ai/docs/m8ugErvLQlsUXLBv) documentation on Bit.ai.
 
-The Development enviroment will install ( Most services are started with **Docker Compose**):
+This is what the Development Enviroment will install:
 :x: To Do :chart: Done
 
 | Tools                  | Services              |
