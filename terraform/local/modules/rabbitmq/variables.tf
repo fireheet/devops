@@ -1,0 +1,7 @@
+variable "RABBITMQ_ERLANG_COOKIE" {}
+
+variable "RABBITMQ_DEFAULT_USER" {}
+
+variable "RABBITMQ_DEFAULT_PASS" {}
+
+variable "RABBITMQ_DEFAULT_VHOST" {}
