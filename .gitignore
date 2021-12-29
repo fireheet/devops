@@ -1,4 +1,6 @@
-hosts
 *.retry
-resources/.bash_aliases
 !.gitkeep
+.terraform
+.terraform.lock.hcl
+.terraform.tfstate
+.terraform.tfstate.backup

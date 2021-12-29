@@ -1,0 +1,16 @@
+# The host can be the IP of the machine if it is external
+# Or it can be the container name.
+#
+# NOTE: They must be in the same network to work properly
+
+[all] # You can separate into groups of IP's or machines
+users_service_dev_env
+
+[dev]
+users_service_dev_env
+
+# These are the settings that Ansible uses to access machines
+[all:vars]
+ansible_ssh_private_key_file=/root/.ssh/id_rsa #  Path to the local private key (Provides access to machines via SSH)
+ansible_become_password=sudopassword           #  The password to become a sudo user in the target machine
+ansible_user=user                              #  The User that Ansible will use

@@ -1,20 +1,14 @@
 output "users_service_api_url" {
-  value = "http://${docker_container.users_service_dev_env.gateway}:${docker_container.users_service_dev_env.ports[0].external}"
+  value = "http://localhost:${docker_container.users_service_dev.ports[0].external}"
 }
 
-output "docker_ips" {
+output "docker_container_names" {
   value = [
-    { rabbitmq = "${module.rabbitmq_service.container_ip}" },
-    { users_service = "${docker_container.users_service_dev_env.gateway}" }
+    module.rabbitmq_service.container_name,
+    docker_container.users_service_dev.name
   ]
 }
 
-output "service_ips" {
-  value = [
-    "${docker_container.users_service_dev_env.gateway}"
-  ]
-}
-
-output "test" {
-  value = module.rabbitmq_service.container_ip
+output "rabbit_mq_container" {
+  value = module.rabbitmq_service.container_info
 }

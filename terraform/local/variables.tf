@@ -8,22 +8,10 @@ variable "fireheet_net_name" {
   default = "fireheet_net"
 }
 
-variable "users_service_path" {
-  default = "/home/dev/fireheet/users"
-}
-
-variable "users_service_path_var_name" {
-  default = "USERS_SVC_PATH"
-}
-
-variable "users_service_max_memory" {
-  default = 1000
-}
-
-variable "users_service_max_swap_memory" {
-  default = 1500
-}
-
-variable "users_service_default_user" {
-  default = "node"
-}
+variable "users_service_path" {}
+variable "users_service_container_name" {}
+variable "users_service_path_var_name" {}
+variable "users_service_container_var_name" {}
+variable "users_service_max_memory" {}
+variable "users_service_max_swap_memory" {}
+variable "users_service_default_user" {}

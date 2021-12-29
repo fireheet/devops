@@ -21,10 +21,10 @@ resource "docker_container" "rabbitmq" {
   memory_swap = 350
 
   env = [
-    "RABBITMQ_DEFAULT_VHOST=${var.RABBITMQ_DEFAULT_VHOST}",
-    "RABBITMQ_ERLANG_COOKIE=${var.RABBITMQ_ERLANG_COOKIE}",
-    "RABBITMQ_DEFAULT_USER=${var.RABBITMQ_DEFAULT_USER}",
-    "RABBITMQ_DEFAULT_PASS=${var.RABBITMQ_DEFAULT_PASS}",
+    "RABBITMQ_DEFAULT_VHOST=${var.rabbitmq_default_vhost}",
+    "RABBITMQ_ERLANG_COOKIE=${var.rabbitmq_erlang_cookie}",
+    "RABBITMQ_DEFAULT_USER=${var.rabbitmq_default_user}",
+    "RABBITMQ_DEFAULT_PASS=${var.rabbitmq_default_pass}",
   ]
 
   ports {

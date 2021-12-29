@@ -1,4 +1,4 @@
-resource "digitalocean_firewall" "fhet-firewall" {
+resource "digitalocean_firewall" "fheet-firewall" {
   name = "fheet-firewall"
 
   droplet_ids = [digitalocean_droplet.new_fheet_droplet_0001.id]

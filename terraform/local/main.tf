@@ -9,20 +9,12 @@ terraform {
 
 resource "null_resource" "create_dev_folder" {
   provisioner "local-exec" {
-    command = "sudo mkdir -p ${var.users_service_path}"
+    command = "mkdir -p ${var.users_service_path}"
   }
 
   # Make the current user the owner of the users service folder
   provisioner "local-exec" {
-    command = "sudo chown -R $USER ${var.users_service_path}"
-  }
-
-  provisioner "local-exec" {
-    command = "sudo export ${var.users_service_path_var_name}=${var.users_service_path}"
-  }
-
-  provisioner "local-exec" {
-    command = "git clone https://github.com/fireheet/users.git ${var.users_service_path}"
+    command = "chown -R $USER ${var.users_service_path}"
   }
 }
 
@@ -32,7 +24,7 @@ provider "docker" {
 
 # Pulls the image
 resource "docker_image" "users_service_dev_image" {
-  name = "fireheet/users:dev"
+  name = "fireheet/dev-env:latest"
 }
 
 resource "docker_network" "create_fireheet_net" {
@@ -40,9 +32,9 @@ resource "docker_network" "create_fireheet_net" {
 }
 
 # Create a container
-resource "docker_container" "users_service_dev_env" {
+resource "docker_container" "users_service_dev" {
   image       = docker_image.users_service_dev_image.latest
-  name        = "users_service_dev_env"
+  name        = "users_service_dev"
   cpu_set     = "0-2"
   memory      = var.users_service_max_memory
   memory_swap = var.users_service_max_swap_memory
