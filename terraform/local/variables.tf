@@ -1,8 +1,8 @@
 # RabbitMQ Env variables
-variable "RABBITMQ_ERLANG_COOKIE" {}
-variable "RABBITMQ_DEFAULT_USER" {}
-variable "RABBITMQ_DEFAULT_PASS" {}
-variable "RABBITMQ_DEFAULT_VHOST" {}
+variable "rabbitmq_erlang_cookie" {}
+variable "rabbitmq_default_user" {}
+variable "rabbitmq_default_pass" {}
+variable "rabbitmq_default_vhost" {}
 
 variable "fireheet_net_name" {
   default = "fireheet_net"

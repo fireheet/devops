@@ -1,7 +1,7 @@
 module "rabbitmq_service" {
   source                 = "./modules/rabbitmq"
-  RABBITMQ_ERLANG_COOKIE = var.RABBITMQ_ERLANG_COOKIE
-  RABBITMQ_DEFAULT_USER  = var.RABBITMQ_DEFAULT_USER
-  RABBITMQ_DEFAULT_PASS  = var.RABBITMQ_DEFAULT_PASS
-  RABBITMQ_DEFAULT_VHOST = var.RABBITMQ_DEFAULT_VHOST
+  rabbitmq_erlang_cookie = var.rabbitmq_erlang_cookie
+  rabbitmq_default_user  = var.rabbitmq_default_user
+  rabbitmq_default_pass  = var.rabbitmq_default_pass
+  rabbitmq_default_vhost = var.rabbitmq_default_vhost
 }
