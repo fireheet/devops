@@ -7,13 +7,15 @@ To get help on installing and setting things up, go through the [Setups | Enviro
 The Development enviroment will install ( Most services are started with **Docker Compose**):
 :x: To Do :chart: Done
 
-- Docker :chart:
-- Docker Compose :chart:
-- Nginx :x:
-- RabbitMQ :chart:
-- PostgresDB :chart:
-- Redis :x:
-- Elastic APM Agent :x:
+| Tools                  | Services              |
+| ---------------------- | --------------------- |
+| Docker :chart:         | Users Service :chart: |
+| Docker Compose :chart: |                       |
+| Nginx :x:              |                       |
+| RabbitMQ :chart:       |                       |
+| PostgresDB :chart:     |                       |
+| Redis :x:              |                       |
+| Elastic APM Agent :x:  |                       |
 
 Template (Not working :x:)
 -----
