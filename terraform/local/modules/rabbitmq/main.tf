@@ -7,15 +7,18 @@ terraform {
   }
 }
 
+data "docker_network" "fireheet_net" {
+  name = "fireheet_net"
+}
 
 # Pulls the image
-resource "docker_image" "rabbitmq_service" {
+resource "docker_image" "rabbitmq_image" {
   name = "rabbitmq:3-management"
 }
 
 # Create a container
 resource "docker_container" "rabbitmq" {
-  image       = docker_image.rabbitmq_service.latest
+  image       = docker_image.rabbitmq_image.latest
   name        = "rabbitmq"
   memory      = 200
   memory_swap = 350
@@ -26,6 +29,10 @@ resource "docker_container" "rabbitmq" {
     "RABBITMQ_DEFAULT_USER=${var.rabbitmq_default_user}",
     "RABBITMQ_DEFAULT_PASS=${var.rabbitmq_default_pass}",
   ]
+
+  networks_advanced {
+    name = data.docker_network.fireheet_net.name
+  }
 
   ports {
     internal = 15672

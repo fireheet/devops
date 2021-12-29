@@ -9,6 +9,10 @@ output "docker_container_names" {
   ]
 }
 
-output "rabbit_mq_container" {
-  value = module.rabbitmq_service.container_info
+output "rabbitmq_container" {
+  value = module.rabbitmq_service.rabbitmq_info
+}
+
+output "postgres_container" {
+  value = module.postgres_service.postgres_info
 }

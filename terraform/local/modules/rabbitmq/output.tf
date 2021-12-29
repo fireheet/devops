@@ -6,7 +6,7 @@ output "container_name" {
   value = docker_container.rabbitmq.name
 }
 
-output "container_info" {
+output "rabbitmq_info" {
   value = [
     "Panel Access    : http://localhost:${docker_container.rabbitmq.ports[0].external}",
     "Default user    : ${var.rabbitmq_default_user}",

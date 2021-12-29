@@ -11,7 +11,7 @@ The Development enviroment will install ( Most services are started with **Docke
 - Docker Compose :chart:
 - Nginx :x:
 - RabbitMQ :chart:
-- PostgresDB :x:
+- PostgresDB :chart:
 - Redis :x:
 - Elastic APM Agent :x:
 
