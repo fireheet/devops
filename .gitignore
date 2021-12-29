@@ -4,3 +4,6 @@
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
+
+!terrafor/digitalocean/terraform.tfstate
+!terrafor/digitalocean/terraform.tfstate.backup
