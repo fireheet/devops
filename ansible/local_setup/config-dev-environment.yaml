@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+
+  roles:
+    - setup_docker
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Start nginx
+      service:
+        name: nginx
+        state: started
+
+    - name: Checkout Users Service develop branch
+      git:
+        repo: 'https://github.com/fireheet/users.git'
+        dest: "{{ lookup('env','USERS_SVC_PATH') }}"
+        version: develop

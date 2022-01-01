@@ -4,6 +4,8 @@ module "rabbitmq_service" {
   rabbitmq_default_user  = var.rabbitmq_default_user
   rabbitmq_default_pass  = var.rabbitmq_default_pass
   rabbitmq_default_vhost = var.rabbitmq_default_vhost
+
+  depends_on = [docker_container.users_service_dev]
 }
 
 module "postgres_service" {
@@ -12,4 +14,12 @@ module "postgres_service" {
   postgres_user      = var.postgres_user
   postgres_pass      = var.postgres_pass
   postgres_db_name   = var.postgres_db_name
+
+  depends_on = [docker_container.users_service_dev]
+}
+
+module "redis_service" {
+  source = "./modules/redis"
+
+  depends_on = [docker_container.users_service_dev]
 }

@@ -1,5 +1,5 @@
 output "container_ip" {
-  value = docker_container.rabbitmq.gateway
+  value = docker_container.rabbitmq.ip_address
 }
 
 output "container_name" {

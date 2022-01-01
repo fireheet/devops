@@ -1,5 +1,9 @@
-output "postgres_url" {
-  value = docker_container.postgres_db.gateway
+output "container_ip" {
+  value = docker_container.postgres_db.ip_address
+}
+
+output "container_name" {
+  value = docker_container.postgres_db.name
 }
 
 output "postgres_info" {

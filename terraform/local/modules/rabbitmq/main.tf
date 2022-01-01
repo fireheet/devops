@@ -13,7 +13,7 @@ data "docker_network" "fireheet_net" {
 
 # Pulls the image
 resource "docker_image" "rabbitmq_image" {
-  name = "rabbitmq:3-management"
+  name = "rabbitmq:3.9.11-management-alpine"
 }
 
 # Create a container
@@ -24,6 +24,7 @@ resource "docker_container" "rabbitmq" {
   memory_swap = 350
 
   env = [
+    "RABBITMQ_CONFIG_FILE=/home/$USER/devops/terraform/local/modules/rabbitmq/rabbitmq-env.conf",
     "RABBITMQ_DEFAULT_VHOST=${var.rabbitmq_default_vhost}",
     "RABBITMQ_ERLANG_COOKIE=${var.rabbitmq_erlang_cookie}",
     "RABBITMQ_DEFAULT_USER=${var.rabbitmq_default_user}",

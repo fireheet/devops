@@ -12,8 +12,8 @@
 
 - name: Add Docker GPG Key
   apt_key:
-    url: "https://download.docker.com/linux/ubuntu/gpg"
-    state: present   
+    url: 'https://download.docker.com/linux/ubuntu/gpg'
+    state: present
 
 - name: Add Docker repository
   apt_repository:
@@ -27,3 +27,7 @@
       - docker-ce-cli
       - containerd.io
     state: present
+
+- name: Give user permission
+  shell:
+    cmd: 'usermod -aG docker $USER'

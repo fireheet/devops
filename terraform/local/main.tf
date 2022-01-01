@@ -9,12 +9,12 @@ terraform {
 
 resource "null_resource" "create_dev_folder" {
   provisioner "local-exec" {
-    command = "mkdir -p ${var.users_service_path}"
+    command = "echo ${var.sudo_password} | sudo mkdir -p ${var.users_service_path}"
   }
 
   # Make the current user the owner of the users service folder
   provisioner "local-exec" {
-    command = "chown -R $USER ${var.users_service_path}"
+    command = "echo ${var.sudo_password} | sudo chown -R $USER ${var.users_service_path}"
   }
 }
 
@@ -39,6 +39,7 @@ resource "docker_container" "users_service_dev" {
   memory      = var.users_service_max_memory
   memory_swap = var.users_service_max_swap_memory
   user        = var.users_service_default_user
+  env         = ["USERS_SVC_PATH=${var.users_service_path}"]
 
   volumes {
     container_path = "/app"

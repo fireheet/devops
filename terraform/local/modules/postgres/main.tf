@@ -13,7 +13,7 @@ data "docker_network" "fireheet_net" {
 
 # Pulls the image
 resource "docker_image" "postgres_image" {
-  name = "postgres:14.1"
+  name = "postgres:14.1-alpine"
 }
 
 # Create a container

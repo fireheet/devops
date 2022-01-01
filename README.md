@@ -14,7 +14,7 @@ This is what the Development Enviroment will install:
 | Nginx :x:              |                       |
 | RabbitMQ :chart:       |                       |
 | PostgresDB :chart:     |                       |
-| Redis :x:              |                       |
+| Redis :chart:          |                       |
 | Elastic APM Agent :x:  |                       |
 
 Template (Not working :x:)
