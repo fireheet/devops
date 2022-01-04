@@ -39,4 +39,9 @@ resource "docker_container" "rabbitmq" {
     internal = 15672
     external = 15672
   }
+
+  ports {
+    internal = 5672
+    external = 5672
+  }
 }

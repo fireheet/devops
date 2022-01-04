@@ -34,7 +34,7 @@ resource "docker_network" "create_fireheet_net" {
 # Create a container
 resource "docker_container" "users_service_dev" {
   image       = docker_image.users_service_dev_image.latest
-  name        = "users_service_dev"
+  name        = "users_svc_dev"
   cpu_set     = "0-2"
   memory      = var.users_service_max_memory
   memory_swap = var.users_service_max_swap_memory

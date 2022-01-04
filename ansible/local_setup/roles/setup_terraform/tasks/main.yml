@@ -1,0 +1,25 @@
+---
+- name: Install Terraform dependencies
+  apt:
+    name:
+      - gnupg
+      - software-properties-common
+      - curl
+    state: present
+    update_cache: yes
+
+- name: Add Terraform GPG Key
+  apt_key:
+    url: 'https://apt.releases.hashicorp.com/gpg'
+    state: present
+
+- name: Add Terraform repository
+  apt_repository:
+    repo: deb https://apt.releases.hashicorp.com bionic stable
+    state: present
+
+- name: Install Terraform
+  apt:
+    name:
+      - terraform
+    state: present

@@ -1,11 +1,9 @@
-FROM node:17.3
+FROM node:14
+
+ENV PORT 3000
 
 WORKDIR /app
 
-RUN apt-get update -y
+EXPOSE $PORT
 
-RUN apt-get install git
-
-EXPOSE 3000
-
-ENTRYPOINT [ "tail", "-f", "/dev/null" ]
+CMD ["yarn", "start:dev"]
