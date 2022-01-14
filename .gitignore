@@ -7,3 +7,5 @@ terraform.tfstate.backup
 
 !terrafor/digitalocean/terraform.tfstate
 !terrafor/digitalocean/terraform.tfstate.backup
+
+local.env

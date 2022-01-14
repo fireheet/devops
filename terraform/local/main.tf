@@ -9,12 +9,12 @@ terraform {
 
 resource "null_resource" "create_dev_folder" {
   provisioner "local-exec" {
-    command = "echo ${var.sudo_password} | sudo mkdir -p ${var.users_service_path}"
+    command = "echo '${var.sudo_password}' | sudo mkdir -p ${var.users_service_path}"
   }
 
   # Make the current user the owner of the users service folder
   provisioner "local-exec" {
-    command = "echo ${var.sudo_password} | sudo chown -R $USER ${var.users_service_path}"
+    command = "echo '${var.sudo_password}' | sudo chown -R $USER ${var.users_service_path}"
   }
 }
 
