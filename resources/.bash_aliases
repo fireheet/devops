@@ -12,6 +12,9 @@ alias export-env="clear && cd ~/devops/resources && sed -i -ne '/##### BEGIN ENV
 alias export-aliases="clear && cat ~/devops/resources/.bash_aliases > ~/.oh-my-zsh/custom/aliases.zsh && echo 'Fireheet aliases exported. Please restart your terminal!'"
 # ---------- Utils END ---------------
 
+# ---------- Git BEGIN ---------------
+alias commit="npx cz"
+# ---------- Git END ---------------
 
 # ---------- Devops BEGIN ---------------
 alias devops-cd="clear && cd ~/devops"
